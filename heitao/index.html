@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黑桃皇后-角色解读、故事原型与文化形象全解析</title>
+<meta name="description" content="黑桃皇后是扑克牌中的经典人物形象，也被广泛用于文学、歌剧与影视作品。本站梳理黑桃皇后的牌面含义、普希金小说与柴可夫斯基歌剧中的故事原型、常见文化形象以及相关常见问题，帮助读者全面理解这一符号。">
+<meta name="keywords" content="黑桃皇后,黑桃皇后小说,黑桃皇后歌剧,扑克牌黑桃Q,黑桃皇后含义,黑桃皇后故事">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --ink:#161320;
+    --ink-soft:#3d3752;
+    --paper:#f6f4ef;
+    --card:#ffffff;
+    --red:#b4122f;
+    --red-soft:#e04a5f;
+    --gold:#c9a227;
+    --line:#e2ddd2;
+    --shadow:0 8px 26px rgba(22,19,32,.09);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Songti SC","Noto Serif SC",Georgia,"Microsoft YaHei",serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{width:min(1160px,92vw);margin:0 auto;}
+
+  /* 顶栏 */
+  .topbar{
+    background:var(--ink);
+    color:#d9d4e6;
+    font-size:.82rem;
+    letter-spacing:.04em;
+  }
+  .topbar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:.55rem 0;gap:1rem;flex-wrap:wrap;
+  }
+  .topbar span.suit{color:var(--red-soft);}
+
+  /* 页眉 */
+  header.site{
+    background:linear-gradient(180deg,#1d1930 0%,#2b2444 100%);
+    color:#f2eff8;
+    border-bottom:3px solid var(--gold);
+  }
+  .head-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:1.5rem;padding:1.6rem 0;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:.9rem;}
+  .brand .mark{
+    width:52px;height:72px;border-radius:6px;
+    background:var(--card);color:var(--ink);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-weight:700;box-shadow:var(--shadow);
+    border:1px solid #ded8cc;
+  }
+  .brand .mark b{font-size:1.5rem;line-height:1;color:var(--red);}
+  .brand .mark i{font-style:normal;font-size:.95rem;line-height:1.2;}
+  .brand h1{font-size:1.35rem;letter-spacing:.06em;font-weight:700;}
+  .brand p{font-size:.8rem;color:#b6afc9;letter-spacing:.14em;}
+
+  nav.main ul{list-style:none;display:flex;gap:1.6rem;flex-wrap:wrap;}
+  nav.main a{
+    font-size:.95rem;padding:.35rem 0;position:relative;color:#e6e1f2;
+    font-family:"Microsoft YaHei",sans-serif;
+  }
+  nav.main a::after{
+    content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
+    background:var(--gold);transition:width .25s ease;
+  }
+  nav.main a:hover::after{width:100%;}
+
+  /* 首屏 */
+  .hero{
+    background:
+      radial-gradient(circle at 82% 18%,rgba(180,18,47,.18),transparent 46%),
+      radial-gradient(circle at 12% 88%,rgba(201,162,39,.16),transparent 50%),
+      #211c36;
+    color:#efeaf7;
+    padding:3.4rem 0 3.2rem;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.35fr .95fr;gap:3rem;align-items:center;
+  }
+  .hero .eyebrow{
+    display:inline-block;font-size:.76rem;letter-spacing:.24em;
+    color:var(--gold);border:1px solid rgba(201,162,39,.5);
+    padding:.28rem .8rem;border-radius:2px;margin-bottom:1.1rem;
+    font-family:"Microsoft YaHei",sans-serif;
+  }
+  .hero h2{
+    font-size:clamp(1.9rem,4vw,2.85rem);
+    line-height:1.28;letter-spacing:.03em;font-weight:700;
+  }
+  .hero h2 em{font-style:normal;color:var(--gold);}
+  .hero p.lead{
+    margin-top:1.1rem;font-size:1.02rem;color:#c9c2dd;max-width:36em;
+    font-family:"Microsoft YaHei",sans-serif;line-height:1.9;
+  }
+  .hero-actions{display:flex;gap:.9rem;margin-top:1.8rem;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:.7rem 1.5rem;border-radius:3px;
+    font-size:.92rem;font-family:"Microsoft YaHei",sans-serif;
+    letter-spacing:.05em;transition:.22s;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--red);color:#fff;}
+  .btn-primary:hover{background:#95102a;}
+  .btn-ghost{border-color:rgba(201,162,39,.65);color:var(--gold);}
+  .btn-ghost:hover{background:rgba(201,162,39,.14);}
+
+  /* 首屏牌面 */
+  .card-visual{
+    display:flex;justify-content:center;gap:1.1rem;
+  }
+  .pcard{
+    width:132px;height:190px;background:var(--card);border-radius:9px;
+    box-shadow:0 16px 34px rgba(0,0,0,.4);
+    border:1px solid #e6e1d6;
+    display:flex;flex-direction:column;justify-content:space-between;
+    padding:.65rem .7rem;color:var(--ink);position:relative;
+  }
+  .pcard .corner{font-size:.95rem;font-weight:700;line-height:1.1;text-align:center;}
+  .pcard .corner:last-child{transform:rotate(180deg);}
+  .pcard .center{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:3.2rem;opacity:.92;
+  }
+  .pcard.spade{color:var(--ink);}
+  .pcard.heart{color:var(--red);}
+  .pcard.tilt-l{transform:rotate(-7deg) translateY(10px);}
+  .pcard.tilt-r{transform:rotate(6deg) translateY(-6px);}
+
+  /* 通用区块 */
+  section.block{padding:3.4rem 0;}
+  .sec-head{margin-bottom:2rem;}
+  .sec-head .kicker{
+    font-size:.76rem;letter-spacing:.24em;color:var(--red);
+    font-family:"Microsoft YaHei",sans-serif;font-weight:700;
+  }
+  .sec-head h3{
+    font-size:clamp(1.35rem,2.6vw,1.85rem);margin-top:.45rem;letter-spacing:.03em;
+  }
+  .sec-head p{
+    margin-top:.7rem;color:var(--ink-soft);max-width:52em;
+    font-family:"Microsoft YaHei",sans-serif;font-size:.95rem;
+  }
+
+  /* 牌面含义 */
+  .meaning-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.3rem;
+  }
+  .meaning{
+    background:var(--card);border:1px solid var(--line);border-radius:6px;
+    padding:1.5rem 1.4rem;box-shadow:var(--shadow);
+    border-top:3px solid var(--gold);
+  }
+  .meaning h4{font-size:1.05rem;margin-bottom:.6rem;letter-spacing:.03em;}
+  .meaning p{font-size:.9rem;color:var(--ink-soft);font-family:"Microsoft YaHei",sans-serif;}
+
+  /* 故事原型 */
+  .story{
+    background:var(--card);border:1px solid var(--line);border-radius:8px;
+    padding:2rem;box-shadow:var(--shadow);
+  }
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;}
+  .story h4{
+    font-size:1.15rem;margin-bottom:.9rem;padding-left:.75rem;
+    border-left:4px solid var(--red);letter-spacing:.03em;
+  }
+  .story p{font-size:.93rem;color:var(--ink-soft);margin-bottom:.85rem;font-family:"Microsoft YaHei",sans-serif;}
+  .story ul{list-style:none;margin-top:.4rem;}
+  .story li{
+    font-size:.9rem;color:var(--ink-soft);padding:.42rem 0 .42rem 1.3rem;
+    position:relative;font-family:"Microsoft YaHei",sans-serif;
+    border-bottom:1px dashed var(--line);
+  }
+  .story li:last-child{border-bottom:none;}
+  .story li::before{
+    content:"♠";position:absolute;left:0;top:.42rem;color:var(--red);font-size:.85rem;
+  }
+
+  /* 文化形象 */
+  .culture{background:#241f3a;color:#eae5f5;}
+  .culture .sec-head .kicker{color:var(--gold);}
+  .culture .sec-head p{color:#b8b1cd;}
+  .culture-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.15rem;
+  }
+  .culture-item{
+    border:1px solid rgba(201,162,39,.28);border-radius:6px;padding:1.4rem 1.3rem;
+    background:rgba(255,255,255,.035);transition:.25s;
+  }
+  .culture-item:hover{background:rgba(255,255,255,.075);border-color:rgba(201,162,39,.6);}
+  .culture-item .tag{
+    font-size:.72rem;letter-spacing:.18em;color:var(--gold);
+    font-family:"Microsoft YaHei",sans-serif;
+  }
+  .culture-item h4{margin:.55rem 0 .55rem;font-size:1.05rem;}
+  .culture-item p{font-size:.88rem;color:#b8b1cd;font-family:"Microsoft YaHei",sans-serif;}
+
+  /* 形象辨识指南 */
+  .guide-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2.4rem;align-items:start;}
+  .guide-list{counter-reset:g;}
+  .guide-item{
+    display:flex;gap:1.1rem;padding:1.1rem 0;border-bottom:1px solid var(--line);
+  }
+  .guide-item:last-child{border-bottom:none;}
+  .guide-item .num{
+    flex:0 0 40px;height:40px;border-radius:50%;
+    background:var(--ink);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1rem;font-weight:700;
+  }
+  .guide-item h4{font-size:1rem;margin-bottom:.35rem;}
+  .guide-item p{font-size:.9rem;color:var(--ink-soft);font-family:"Microsoft YaHei",sans-serif;}
+
+  aside.side{
+    background:var(--card);border:1px solid var(--line);border-radius:8px;
+    padding:1.6rem 1.5rem;box-shadow:var(--shadow);
+  }
+  aside.side h4{
+    font-size:1.02rem;margin-bottom:1rem;padding-bottom:.6rem;
+    border-bottom:2px solid var(--gold);letter-spacing:.03em;
+  }
+  aside.side dl{font-size:.9rem;font-family:"Microsoft YaHei",sans-serif;}
+  aside.side dt{color:var(--red);font-weight:700;margin-top:.85rem;}
+  aside.side dt:first-child{margin-top:0;}
+  aside.side dd{color:var(--ink-soft);margin-top:.2rem;}
+
+  /* 常见问题 */
+  .faq{background:#efece3;}
+  .faq-item{
+    background:var(--card);border:1px solid var(--line);border-radius:6px;
+    margin-bottom:.85rem;overflow:hidden;
+  }
+  .faq-item summary{
+    cursor:pointer;list-style:none;padding:1.05rem 1.3rem;
+    font-size:.98rem;font-weight:700;position:relative;
+    font-family:"Microsoft YaHei",sans-serif;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:"+";position:absolute;right:1.3rem;top:50%;transform:translateY(-50%);
+    color:var(--red);font-size:1.25rem;font-weight:400;
+  }
+  .faq-item[open] summary::after{content:"−";}
+  .faq-item .ans{
+    padding:0 1.3rem 1.15rem;font-size:.9rem;color:var(--ink-soft);
+    font-family:"Microsoft YaHei",sans-serif;border-top:1px dashed var(--line);
+    padding-top:.9rem;
+  }
+
+  /* 页脚 */
+  footer.site{
+    background:var(--ink);color:#a49dba;padding:2.8rem 0 1.6rem;
+    font-family:"Microsoft YaHei",sans-serif;font-size:.86rem;
+  }
+  .foot-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;
+    padding-bottom:1.8rem;border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  footer.site h5{color:#f0ecf8;font-size:.95rem;margin-bottom:.85rem;letter-spacing:.06em;}
+  footer.site ul{list-style:none;}
+  footer.site li{padding:.25rem 0;}
+  footer.site li a:hover{color:var(--gold);}
+  .foot-bottom{padding-top:1.3rem;text-align:center;font-size:.8rem;color:#7d769b;}
+
+  /* 响应式 */
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:2.2rem;}
+    .card-visual{justify-content:flex-start;}
+    .story-grid{grid-template-columns:1fr;gap:1.8rem;}
+    .guide-wrap{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:600px){
+    .head-inner{flex-direction:column;align-items:flex-start;gap:1rem;}
+    nav.main ul{gap:1rem;}
+    .pcard{width:104px;height:152px;}
+    .pcard .center{font-size:2.5rem;}
+    section.block{padding:2.4rem 0;}
+    .story{padding:1.4rem;}
+    .foot-grid{grid-template-columns:1fr;}
+    .hero{padding:2.4rem 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>扑克文化与文学形象资料站 · 内容持续整理</span>
+    <span class="suit">♠ ♥ ♦ ♣</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"><b>♠</b><i>Q</i></div>
+      <div>
+        <h1>黑桃皇后</h1>
+        <p>牌面 · 文学 · 歌剧 · 文化形象</p>
+      </div>
+    </div>
+    <nav class="main" aria-label="主导航">
+      <ul>
+        <li><a href="#meaning">牌面含义</a></li>
+        <li><a href="#story">故事原型</a></li>
+        <li><a href="#culture">文化形象</a></li>
+        <li><a href="#guide">辨识指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">BLACK QUEEN · 黑桃皇后</span>
+        <h2>黑桃皇后是什么？<br>从一张扑克牌到<em>经典文学符号</em></h2>
+        <p class="lead">
+          “黑桃皇后”既指扑克牌中的黑桃Q，也是普希金短篇小说与柴可夫斯基同名歌剧中的核心形象。
+          它同时存在于牌桌、书页与舞台之上，含义随语境变化。本页从牌面规则、故事原型、文化形象三个方向，
+          梳理这一名称的常见用法与理解方式。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#story">了解故事原型</a>
+          <a class="btn btn-ghost" href="#meaning">查看牌面含义</a>
+        </div>
+      </div>
+      <div class="card-visual" aria-hidden="true">
+        <div class="pcard spade tilt-l">
+          <div class="corner">Q<br>♠</div>
+          <div class="center">♠</div>
+          <div class="corner">Q<br>♠</div>
+        </div>
+        <div class="pcard heart tilt-r">
+          <div class="corner">Q<br>♥</div>
+          <div class="center">♥</div>
+          <div class="corner">Q<br>♥</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 牌面含义 -->
+  <section class="block" id="meaning">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">01 / 牌面含义</div>
+        <h3>黑桃Q在扑克牌中的位置</h3>
+        <p>在标准五十二张扑克牌中，黑桃Q是黑桃花色中的人物牌之一。不同玩法赋予它的意义差别很大，理解时需要注意区分“牌面本身”和“具体游戏规则”。</p>
+      </div>
+      <div class="meaning-grid">
+        <article class="meaning">
+          <h4>标准牌面构成</h4>
+          <p>黑桃Q由黑桃花色符号与字母Q组成，Q代表Queen（皇后）。在多数扑克牌设计中，四位Q分别对应不同的历史或传说人物形象，黑桃Q通常与智慧、谋略类的形象联系在一起，但不同厂商的牌面设计并不统一。</p>
+        </article>
+        <article class="meaning">
+          <h4>花色与顺序</h4>
+          <p>在常见的桥牌、升级等玩法中，花色之间存在排序差异，黑桃往往被列为最高花色。人物牌Q一般位于J与K之间，但部分游戏会单独调整人物牌的强弱关系，需以具体规则为准。</p>
+        </article>
+        <article class="meaning">
+          <h4>特定玩法中的角色</h4>
+          <p>在一些民间玩法里，黑桃Q会被赋予特殊身份，例如作为需要规避或争夺的关键牌。这类设定属于地方规则，并非扑克牌的通用含义，参与前应先确认该玩法的具体约定。</p>
+        </article>
+        <article class="meaning">
+          <h4>收藏与设计角度</h4>
+          <p>从收藏角度看，黑桃Q常因图案细节丰富而受到关注。不同年代、不同厂商的牌面在人物姿态、服饰和对称方式上差异明显，是扑克牌设计研究的常见切入点。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 故事原型 -->
+  <section class="block" id="story" style="background:#efece3;">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">02 / 故事原型</div>
+        <h3>普希金小说与柴可夫斯基歌剧</h3>
+        <p>当人们在文学或音乐语境中提到“黑桃皇后”，通常指的是同一条故事线索：一个关于欲望、秘密与代价的叙事。它先以文字形式出现，后被改编为歌剧并广为流传。</p>
+      </div>
+      <div class="story">
+        <div class="story-grid">
+          <div>
+            <h4>文学中的故事轮廓</h4>
+            <p>俄罗斯作家普希金创作了短篇小说《黑桃皇后》。故事围绕一位年轻人展开，他得知一位老伯爵夫人掌握着“三张必胜牌”的秘密，并试图获取这个秘密，最终走向失控。</p>
+            <p>作品的核心并不在于赌博技巧，而在于人对确定性的执念。所谓“必胜”的诱惑，恰恰是故事中最不可靠的部分，这一点也是它被反复讨论的原因。</p>
+            <ul>
+              <li>主题关键词：欲望、偶然、代价</li>
+              <li>叙事结构：从传闻到执念再到崩塌</li>
+              <li>象征物：纸牌、秘密、不可控的命运</li>
+            </ul>
+          </div>
+          <div>
+            <h4>歌剧中的呈现方式</h4>
+            <p>柴可夫斯基将这个故事改编为同名歌剧。音乐强化了紧张感与心理变化，使“黑桃皇后”从纸牌形象转化为具有压迫感的舞台符号。</p>
+            <p>歌剧版本在情节细节和人物侧重上与原著存在差异，例如对配角戏份的调整、场景顺序的变化等。若同时接触两个版本，建议分别从各自的艺术逻辑去理解，而不是简单对照。</p>
+            <ul>
+              <li>艺术形式：音乐、唱段与舞台调度</li>
+              <li>常见讨论点：人物动机与结局处理</li>
+              <li>欣赏建议：先了解大致情节再听唱段</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 文化形象 -->
+  <section class="block culture" id="culture">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">03 / 文化形象</div>
+        <h3>“黑桃皇后”在不同语境中的样子</h3>
+        <p>同一个名称，在牌桌、文学、舞台乃至日常表达中扮演着不同角色。分清语境，是准确理解这一形象的前提。</p>
+      </div>
+      <div class="culture-grid">
+        <article class="culture-item">
+          <span class="tag">牌桌语境</span>
+          <h4>一张有身份的牌</h4>
+          <p>在需要区分人物牌的玩法中，黑桃Q可能承担特殊功能。它的意义来自规则约定，而不是牌面图案本身。</p>
+        </article>
+        <article class="culture-item">
+          <span class="tag">文学语境</span>
+          <h4>欲望的象征</h4>
+          <p>在小说叙事中，它更多是一种隐喻：看似可以掌控的规律，往往隐藏着无法承担的后果。</p>
+        </article>
+        <article class="culture-item">
+          <span class="tag">音乐语境</span>
+          <h4>舞台上的压迫感</h4>
+          <p>歌剧版本借助音乐与场景，把纸牌意象转化为情绪张力，使这一名称具有了听觉层面的记忆点。</p>
+        </article>
+        <article class="culture-item">
+          <span class="tag">日常语境</span>
+          <h4>被借用的称呼</h4>
+          <p>在日常表达中，它有时被用来形容强势、神秘或难以捉摸的形象，属于借用而非严格定义。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 辨识指南 -->
+  <section class="block" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">04 / 辨识指南</div>
+        <h3>遇到“黑桃皇后”时，先判断属于哪一类</h3>
+        <p>由于这一名称跨领域使用，检索或阅读时容易混淆。以下顺序可以帮助你快速定位自己真正需要的信息。</p>
+      </div>
+      <div class="guide-wrap">
+        <div class="guide-list">
+          <div class="guide-item">
+            <div class="num">1</div>
+            <div>
+              <h4>先看信息来源</h4>
+              <p>如果内容出现在棋牌、游戏规则类页面，多半讨论的是牌面功能；如果出现在文学、音乐类页面，则更可能指向故事与作品。</p>
+            </div>
+          </div>
+          <div class="guide-item">
+            <div class="num">2</div>
+            <div>
+              <h4>确认是原著还是改编</h4>
+              <p>小说与歌剧在情节细节上并不完全一致。阅读评论或介绍时，先确认对方讨论的是哪一个版本，可以避免理解偏差。</p>
+            </div>
+          </div>
+          <div class="guide-item">
+            <div class="num">3</div>
+            <div>
+              <h4>区分通用含义与地方规则</h4>
+              <p>扑克牌本身没有统一的“黑桃Q特殊功能”，相关说法多来自具体玩法。遇到此类描述，应以该玩法的正式规则为准。</p>
+            </div>
+          </div>
+          <div class="guide-item">
+            <div class="num">4</div>
+            <div>
+              <h4>留意比喻性用法</h4>
+              <p>在非专业场合，这一称呼可能只是形容某种气质或处境，并不指向具体作品。此时不必强行对应到某个固定含义。</p>
+            </div>
+          </div>
+        </div>
+        <aside class="side">
+          <h4>快速对照</h4>
+          <dl>
+            <dt>♠ 牌面</dt>
+            <dd>黑桃Q，人物牌之一，含义由玩法规则决定。</dd>
+            <dt>♠ 文学</dt>
+            <dd>普希金短篇小说，围绕秘密与欲望展开。</dd>
+            <dt>♠ 歌剧</dt>
+            <dd>柴可夫斯基改编作品，音乐与舞台表现突出。</dd>
+            <dt>♠ 日常</dt>
+            <dd>借用性称呼，含义随语境浮动。</dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见问题 -->
+  <section class="block faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">05 / 常见问题</div>
+        <h3>关于黑桃皇后的常见疑问</h3>
+        <p>以下问题来自读者在了解这一名称时较常遇到的分歧点，回答以稳妥、可核对为原则。</p>
+      </div>
+
+      <details class="faq-item" open>
+        <summary>黑桃皇后就是黑桃Q吗？</summary>
+        <div class="ans">在扑克牌语境中，黑桃皇后通常就是指黑桃Q。但在文学、歌剧等语境中，“黑桃皇后”是一个作品名称或形象称呼，含义并不等同于一张牌的牌面功能。理解时需要先区分语境。</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>《黑桃皇后》小说讲的是什么？</summary>
+        <div class="ans">这是普希金创作的短篇小说，围绕一位年轻人试图获取“三张必胜牌”秘密的过程展开。故事的重点在于欲望与代价，而不是赌博技巧本身。具体情节建议直接阅读原著或权威译本。</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>歌剧和小说内容一样吗？</summary>
+        <div class="ans">不完全一样。柴可夫斯基的歌剧在人物侧重、场景安排和结局处理上都做了调整，以适应舞台与音乐表达。两者可以分别欣赏，不必强行一一对应。</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>黑桃Q在扑克游戏里有固定特殊含义吗？</summary>
+        <div class="ans">没有跨玩法通用的特殊含义。某些地方玩法会赋予它特定身份，但这属于该玩法的规则约定。参与前应确认具体规则，避免按其他玩法理解。</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>为什么黑桃皇后常和“神秘”“危险”联系在一起？</summary>
+        <div class="ans">这主要来自文学与歌剧作品的传播。故事中关于秘密、执念与失控的情节，使这一名称逐渐带上了神秘色彩。日常使用中的这类联想，属于文化传播的结果，而非牌面本身的属性。</div>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h5>关于本站</h5>
+        <p style="line-height:1.9;">本站围绕“黑桃皇后”这一名称，整理扑克牌面、文学原著、歌剧改编与文化形象方面的基础资料，供读者查阅与对照参考。</p>
+      </div>
+      <div>
+        <h5>内容导航</h5>
+        <ul>
+          <li><a href="#meaning">牌面含义</a></li>
+          <li><a href="#story">故事原型</a></li>
+          <li><a href="#culture">文化形象</a></li>
+          <li><a href="#guide">辨识指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>阅读提示</h5>
+        <ul>
+          <li>文学与歌剧版本请分别理解</li>
+          <li>扑克玩法以具体规则为准</li>
+          <li>涉及作品内容建议查阅原著</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      ♠ 黑桃皇后 · 牌面与文化形象资料整理
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('nav.main a[href^="#"]').forEach(function(link){
+    link.addEventListener('click',function(e){
+      var target=document.querySelector(this.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+  });
+</script>
+
+</body>
+  </html>
