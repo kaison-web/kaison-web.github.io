@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冒险岛风灵使者加点 - 技能加点思路、能力值分配与养成指南</title>
+<meta name="description" content="冒险岛风灵使者加点指南，整理风灵使者技能加点顺序、能力值分配思路、主副技能选择、一二三四转加点建议与常见问题，帮助玩家规划养成路线。">
+<meta name="keywords" content="冒险岛风灵使者加点,风灵使者技能加点,冒险岛风灵使者能力值,风灵使者转职加点,风灵使者攻略">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --green-900:#123b2a;
+  --green-700:#1f6b47;
+  --green-500:#2f9e63;
+  --green-300:#8fd6ac;
+  --green-100:#e6f6ec;
+  --leaf:#7cc576;
+  --bark:#5b4636;
+  --ink:#1c2620;
+  --muted:#5f6f66;
+  --line:#d6e6dc;
+  --bg:#f4faf6;
+  --card:#ffffff;
+  --shadow:0 6px 24px rgba(18,59,42,.08);
+  --radius:14px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Source Han Sans SC",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:var(--green-700);text-decoration:none;}
+a:hover{color:var(--green-500);}
+img{max-width:100%;}
+h1,h2,h3{line-height:1.35;margin:0 0 .6em;}
+h1{font-size:1.9rem;}
+h2{font-size:1.5rem;color:var(--green-900);}
+h3{font-size:1.12rem;color:var(--green-700);}
+p{margin:0 0 1em;}
+ul,ol{margin:0 0 1em;padding-left:1.3em;}
+li{margin-bottom:.4em;}
+
+/* 顶部信息条 */
+.topbar{
+  background:var(--green-900);
+  color:#d9f2e3;
+  font-size:.82rem;
+  text-align:center;
+  padding:6px 12px;
+  letter-spacing:.02em;
+}
+.topbar span{color:var(--green-300);}
+
+/* 页眉 */
+.site-header{
+  background:linear-gradient(135deg,#1f6b47 0%,#2f9e63 55%,#7cc576 100%);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.site-header::after{
+  content:"";
+  position:absolute;
+  right:-60px;
+  top:-60px;
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+}
+.header-inner{
+  max-width:1140px;
+  margin:0 auto;
+  padding:22px 20px 26px;
+  position:relative;
+  z-index:1;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.brand .logo{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.4rem;
+  font-weight:700;
+  flex:0 0 auto;
+}
+.brand .name{
+  font-size:1.28rem;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+.brand .slogan{
+  font-size:.84rem;
+  color:#e3f7eb;
+  opacity:.95;
+}
+nav.main-nav{
+  margin-top:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+nav.main-nav a{
+  color:#f2fff7;
+  font-size:.9rem;
+  padding:7px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.22);
+  transition:background .2s,transform .2s;
+}
+nav.main-nav a:hover{
+  background:rgba(255,255,255,.26);
+  color:#fff;
+  transform:translateY(-1px);
+}
+
+/* 首屏 */
+.hero{
+  max-width:1140px;
+  margin:0 auto;
+  padding:34px 20px 10px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:26px;
+  align-items:start;
+}
+.hero-main{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:28px 26px;
+  border-top:4px solid var(--green-500);
+}
+.hero-main h1{
+  color:var(--green-900);
+  font-size:1.95rem;
+  margin-bottom:.5em;
+}
+.hero-main .lead{
+  color:var(--muted);
+  font-size:1rem;
+}
+.tag-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:16px 0 4px;
+}
+.tag{
+  font-size:.78rem;
+  background:var(--green-100);
+  color:var(--green-700);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:4px 12px;
+}
+.hero-side{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.side-card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:20px;
+}
+.side-card h3{
+  margin-bottom:.5em;
+  font-size:1rem;
+  color:var(--green-900);
+  border-left:4px solid var(--green-500);
+  padding-left:10px;
+}
+.side-card ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  font-size:.9rem;
+}
+.side-card li{
+  padding:7px 0;
+  border-bottom:1px dashed var(--line);
+  color:var(--muted);
+}
+.side-card li:last-child{border-bottom:none;}
+.side-card li strong{color:var(--green-700);font-weight:600;}
+
+/* 主布局 */
+.layout{
+  max-width:1140px;
+  margin:0 auto;
+  padding:20px 20px 40px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 300px;
+  gap:26px;
+  align-items:start;
+}
+main{min-width:0;}
+section.block{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:26px 26px 20px;
+  margin-bottom:24px;
+}
+section.block > h2{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding-bottom:12px;
+  border-bottom:2px solid var(--green-100);
+  margin-bottom:18px;
+}
+section.block > h2::before{
+  content:"";
+  width:8px;
+  height:22px;
+  border-radius:4px;
+  background:linear-gradient(180deg,var(--green-500),var(--leaf));
+  flex:0 0 auto;
+}
+
+/* 加点顺序表 */
+.step-list{
+  counter-reset:step;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.step-list li{
+  position:relative;
+  padding:14px 16px 14px 58px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  margin-bottom:12px;
+  background:#fbfefc;
+}
+.step-list li::before{
+  counter-increment:step;
+  content:counter(step);
+  position:absolute;
+  left:16px;
+  top:14px;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:var(--green-500);
+  color:#fff;
+  font-size:.85rem;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.step-list li strong{
+  color:var(--green-900);
+  display:block;
+  margin-bottom:2px;
+}
+.step-list li p{
+  margin:0;
+  font-size:.92rem;
+  color:var(--muted);
+}
+
+/* 卡片网格 */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:16px;
+}
+.card{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:18px;
+  background:#fbfefc;
+  transition:transform .2s,box-shadow .2s;
+}
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(18,59,42,.10);
+}
+.card h3{
+  margin-bottom:.4em;
+  color:var(--green-900);
+  font-size:1.02rem;
+}
+.card p{
+  margin:0;
+  font-size:.9rem;
+  color:var(--muted);
+}
+.card .badge{
+  display:inline-block;
+  font-size:.72rem;
+  background:var(--green-100);
+  color:var(--green-700);
+  border-radius:6px;
+  padding:2px 8px;
+  margin-bottom:8px;
+}
+
+/* 表格 */
+.table-wrap{overflow-x:auto;}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.9rem;
+  min-width:520px;
+}
+th,td{
+  border:1px solid var(--line);
+  padding:10px 12px;
+  text-align:left;
+  vertical-align:top;
+}
+th{
+  background:var(--green-100);
+  color:var(--green-900);
+  font-weight:600;
+  white-space:nowrap;
+}
+tbody tr:nth-child(even){background:#fafdfb;}
+
+/* 提示框 */
+.notice{
+  border-left:4px solid var(--leaf);
+  background:var(--green-100);
+  border-radius:0 10px 10px 0;
+  padding:14px 18px;
+  font-size:.92rem;
+  color:#245139;
+  margin:0 0 18px;
+}
+.notice strong{color:var(--green-900);}
+
+/* FAQ */
+.faq-item{
+  border:1px solid var(--line);
+  border-radius:12px;
+  margin-bottom:12px;
+  overflow:hidden;
+  background:#fbfefc;
+}
+.faq-item summary{
+  cursor:pointer;
+  padding:14px 18px;
+  font-weight:600;
+  color:var(--green-900);
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:"+";
+  font-size:1.2rem;
+  color:var(--green-500);
+  flex:0 0 auto;
+  transition:transform .2s;
+}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item .faq-body{
+  padding:0 18px 16px;
+  font-size:.93rem;
+  color:var(--muted);
+  border-top:1px dashed var(--line);
+  padding-top:12px;
+}
+
+/* 侧栏 */
+aside .widget{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:20px;
+  margin-bottom:20px;
+}
+aside .widget h3{
+  font-size:1rem;
+  color:var(--green-900);
+  margin-bottom:.7em;
+  padding-bottom:8px;
+  border-bottom:2px solid var(--green-100);
+}
+aside .widget ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  font-size:.9rem;
+}
+aside .widget li{
+  padding:8px 0;
+  border-bottom:1px dashed var(--line);
+}
+aside .widget li:last-child{border-bottom:none;}
+aside .widget li a{color:var(--ink);}
+aside .widget li a:hover{color:var(--green-500);}
+aside .widget .mini-note{
+  font-size:.84rem;
+  color:var(--muted);
+  margin:0;
+}
+
+/* 页脚 */
+footer.site-footer{
+  background:var(--green-900);
+  color:#c9e7d6;
+  margin-top:10px;
+}
+.footer-inner{
+  max-width:1140px;
+  margin:0 auto;
+  padding:32px 20px 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:24px;
+}
+.footer-inner h4{
+  color:#fff;
+  font-size:.95rem;
+  margin:0 0 .7em;
+}
+.footer-inner ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  font-size:.86rem;
+}
+.footer-inner li{margin-bottom:.4em;}
+.footer-inner a{color:#bfe3cf;}
+.footer-inner a:hover{color:#fff;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.15);
+  text-align:center;
+  font-size:.8rem;
+  padding:14px 20px 20px;
+  color:#9fc9b3;
+}
+
+/* 响应式 */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;}
+  .layout{grid-template-columns:1fr;}
+  aside{order:2;}
+}
+@media (max-width:600px){
+  body{font-size:15px;}
+  h1{font-size:1.5rem;}
+  .hero-main{padding:22px 18px;}
+  .hero-main h1{font-size:1.55rem;}
+  section.block{padding:20px 16px 14px;}
+  .header-inner{padding:18px 16px 20px;}
+  .hero{padding:24px 16px 6px;}
+  .layout{padding:16px 16px 30px;}
+  .step-list li{padding-left:52px;}
+  .step-list li::before{left:12px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">风灵使者养成参考 · 加点思路随版本与个人玩法可能不同，请以当前游戏内实际说明为准 <span>·</span> 内容持续整理</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo">风</div>
+      <div>
+        <div class="name">风灵使者加点站</div>
+        <div class="slogan">技能顺序 · 能力值分配 · 转职养成参考</div>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#intro">基础认识</a>
+      <a href="#order">加点顺序</a>
+      <a href="#stat">能力值分配</a>
+      <a href="#job">转职阶段</a>
+      <a href="#equip">装备与内在</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-grid">
+    <div class="hero-main">
+      <h1>冒险岛风灵使者加点：从技能顺序到能力值分配的完整思路</h1>
+      <p class="lead">风灵使者是冒险岛中弓箭手职业群里的精灵系分支，以风属性远程输出与灵活的位移手感为特色。搜索“冒险岛风灵使者加点”的玩家，通常最关心三件事：<strong>技能点先加什么、能力值怎么分、不同转职阶段有没有区别</strong>。本页把这些问题拆开讲清楚，帮助你按自己的玩法节奏规划加点，而不是照抄一套固定答案。</p>
+      <div class="tag-row">
+        <span class="tag">技能加点顺序</span>
+        <span class="tag">能力值分配</span>
+        <span class="tag">一转至四转</span>
+        <span class="tag">主副技能取舍</span>
+        <span class="tag">新手友好</span>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="side-card">
+        <h3>快速结论</h3>
+        <ul>
+          <li><strong>能力值：</strong>以主属性敏捷为核心，力量仅满足装备需求</li>
+          <li><strong>技能点：</strong>优先点满主输出与被动增益，再补辅助与位移</li>
+          <li><strong>转职期：</strong>每次转职后先补核心输出，避免平均分配</li>
+          <li><strong>洗点：</strong>多数版本支持技能点重置，前期不必过度纠结</li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h3>阅读建议</h3>
+        <ul>
+          <li>先看「基础认识」了解职业定位</li>
+          <li>再看「加点顺序」按阶段执行</li>
+          <li>最后对照「常见问题」排查疑惑</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+  <main>
+
+    <section class="block" id="intro">
+      <h2>风灵使者是什么职业，加点前先弄清定位</h2>
+      <p>风灵使者属于弓箭手体系中以精灵与风元素为主题的职业，攻击方式以远程物理输出为主，同时带有一定的自然元素表现。它的手感特点通常被概括为：攻击距离远、机动性较好、技能动画轻快。理解这一点对加点很关键——因为远程职业的加点重点，往往集中在<strong>提升持续输出效率</strong>和<strong>保证生存与走位</strong>两件事上，而不是堆叠近战式的防御属性。</p>
+      <p>加点主要分两条线：一条是<strong>能力值（属性点）</strong>，决定角色的基础面板方向；另一条是<strong>技能点</strong>，决定你能用哪些技能、技能有多强。两者不能混为一谈，很多新手之所以加错，就是把“属性点”和“技能点”的规则记混了。</p>
+      <div class="notice">
+        <strong>提醒：</strong>不同版本、不同服务器的技能数值与技能点上限可能存在差异，本页提供的是通用加点思路与优先级判断方法，具体数值请以你所在版本的游戏内说明为准。
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <span class="badge">定位</span>
+          <h3>远程物理输出</h3>
+          <p>以弓箭类武器进行远距离攻击，适合喜欢保持距离、边走边打的玩家。</p>
+        </div>
+        <div class="card">
+          <span class="badge">手感</span>
+          <h3>机动灵活</h3>
+          <p>位移与跳跃类技能较多，加点时通常需要留出一定点数给机动与辅助技能。</p>
+        </div>
+        <div class="card">
+          <span class="badge">养成</span>
+          <h3>主属性敏捷</h3>
+          <p>能力值以敏捷为主，力量一般只加到满足装备穿戴要求即可。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="order">
+      <h2>风灵使者技能加点顺序：按优先级推进</h2>
+      <p>技能点有限，所以加点的核心不是“每个技能都点一点”，而是<strong>先保证主输出技能成型，再补被动增益，最后处理辅助与功能技能</strong>。下面这套顺序是通用思路，你可以根据自己的实际技能点数量做微调。</p>
+      <ol class="step-list">
+        <li>
+          <strong>第一步：点满当前阶段的主输出技能</strong>
+          <p>主输出技能决定你清怪和打怪的速度，优先级最高。把主要攻击技能先顶到可点上限，能明显改善练级体验。</p>
+        </li>
+        <li>
+          <strong>第二步：补核心被动增益</strong>
+          <p>提升攻击力、暴击、命中或攻速的被动技能，通常收益稳定，建议在主输出成型后尽快跟进。</p>
+        </li>
+        <li>
+          <strong>第三步：点出关键位移与生存技能</strong>
+          <p>远程职业需要保持距离，位移技能与减伤、闪避类技能能显著提升容错率，不建议长期搁置。</p>
+        </li>
+        <li>
+          <strong>第四步：补辅助与增益类技能</strong>
+          <p>团队增益、状态类技能按需投入，单刷为主的玩家可以适当延后。</p>
+        </li>
+        <li>
+          <strong>第五步：回头清理剩余技能点</strong>
+          <p>把之前只点了一点的过渡技能补满，或根据剩余点数分配到收益较高的被动上。</p>
+        </li>
+      </ol>
+      <div class="table-wrap">
+        <table>
+          <caption class="sr-only" style="position:absolute;left:-9999px;">风灵使者技能加点优先级参考</caption>
+          <thead>
+            <tr>
+              <th>优先级</th>
+              <th>技能类型</th>
+              <th>加点建议</th>
+              <th>原因</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>最高</td>
+              <td>主输出技能</td>
+              <td>优先点满</td>
+              <td>直接决定清怪与输出效率</td>
+            </tr>
+            <tr>
+              <td>高</td>
+              <td>攻击/暴击类被动</td>
+              <td>尽早补满</td>
+              <td>收益稳定，影响全程输出</td>
+            </tr>
+            <tr>
+              <td>中高</td>
+              <td>位移与生存技能</td>
+              <td>点出关键等级</td>
+              <td>提升走位与容错，减少死亡</td>
+            </tr>
+            <tr>
+              <td>中</td>
+              <td>辅助与增益技能</td>
+              <td>按玩法投入</td>
+              <td>组队价值高，单刷可延后</td>
+            </tr>
+            <tr>
+              <td>低</td>
+              <td>过渡性技能</td>
+              <td>够用即可</td>
+              <td>后期会被替换，不必重投</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="block" id="stat">
+      <h2>能力值怎么分配：主属性与副属性的取舍</h2>
+      <p>冒险岛的能力值分配逻辑在多个版本中经历过调整，但核心原则一直比较清晰：<strong>主属性拉满，副属性只满足装备需求</strong>。对风灵使者来说，主属性是敏捷，力量通常用于满足部分装备的穿戴条件。</p>
+      <h3>常见分配思路</h3>
+      <ul>
+        <li><strong>敏捷为主：</strong>绝大部分能力值投入敏捷，直接提升攻击相关面板。</li>
+        <li><strong>力量为辅：</strong>只加到能穿上目标装备的最低要求，不建议额外堆高。</li>
+        <li><strong>幸运与智力：</strong>一般与风灵使者的核心输出无关，通常不投入。</li>
+      </ul>
+      <p>需要注意的是，部分版本采用自动分配或推荐加点的机制，此时你只需要确认系统给出的是“主敏捷”方向即可。如果你所在的版本仍允许手动分配，建议在每次换装备前先确认装备的力量需求，避免出现“属性不够穿不上”的尴尬。</p>
+      <div class="notice">
+        <strong>实用做法：</strong>准备换装备时，先看装备需求，再把力量补到刚好达标，其余全部给敏捷。这样既不影响输出，也不会浪费点数。
+      </div>
+    </section>
+
+    <section class="block" id="job">
+      <h2>各转职阶段的加点重点</h2>
+      <p>风灵使者会随着转职逐步解锁新技能，每个阶段的加点重心并不相同。下面按阶段说明思路，具体技能名称请以你所在版本的技能树为准。</p>
+      <div class="card-grid">
+        <div class="card">
+          <span class="badge">一转</span>
+          <h3>打基础，先出输出</h3>
+          <p>一转技能点较少，优先点出可用的基础攻击技能，保证能正常练级，其余点数补基础被动。</p>
+        </div>
+        <div class="card">
+          <span class="badge">二转</span>
+          <h3>强化主输出与被动</h3>
+          <p>二转通常会出现更强的主力技能，建议优先点满，再补攻击、命中等被动。</p>
+        </div>
+        <div class="card">
+          <span class="badge">三转</span>
+          <h3>成型期，兼顾机动</h3>
+          <p>三转技能数量增加，主输出与关键被动优先，位移和生存技能此时应逐步补上。</p>
+        </div>
+        <div class="card">
+          <span class="badge">四转</span>
+          <h3>核心技能与强化</h3>
+          <p>四转技能通常是后期核心，优先点满主要输出与强化类被动，再按需分配辅助技能。</p>
+        </div>
+      </div>
+      <p>如果你在某个阶段发现技能点不够用，属于正常现象。多数版本会通过任务、等级或道具提供额外技能点，按阶段推进即可，不必强行在一个阶段点满所有技能。</p>
+    </section>
+
+    <section class="block" id="equip">
+      <h2>加点之外的配套：装备、内在与练级路线</h2>
+      <p>加点只是养成的一部分。想让风灵使者发挥得更顺，还需要注意以下几点：</p>
+      <h3>装备方向</h3>
+      <ul>
+        <li>优先选择与弓箭类武器匹配的装备，关注攻击力、敏捷与潜在属性。</li>
+        <li>防具以提升生存与主属性为主，不必盲目追求高防御而牺牲输出。</li>
+        <li>换装前确认力量需求，避免属性点被迫临时调整。</li>
+      </ul>
+      <h3>内在能力</h3>
+      <p>内在能力通常可以提供攻速、暴击、增益持续时间等方向的加成。对远程输出职业来说，与输出效率和手感相关的词条往往更实用，具体选择可以结合自己的装备与玩法偏好。</p>
+      <h3>练级与打怪</h3>
+      <ul>
+        <li>利用远程优势，选择怪物密度适中、地形便于走位的地图。</li>
+        <li>保持位移技能可用，避免被怪物围住。</li>
+        <li>组队时注意自身站位，远程职业的生存往往比输出更需要留意。</li>
+      </ul>
+    </section>
+
+    <section class="block" id="faq">
+      <h2>常见问题</h2>
+
+      <details class="faq-item" open>
+        <summary>风灵使者加点是主敏捷还是主力量？</summary>
+        <div class="faq-body">通常以敏捷为主属性，力量只加到满足装备穿戴要求。除非你所在版本有特殊机制，否则不建议把大量点数投入力量。</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>技能点加错了怎么办？</summary>
+        <div class="faq-body">多数版本提供技能点重置的途径，例如特定道具或系统功能。前期加错不必过度焦虑，先确认当前版本是否支持重置，再决定是否调整。</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>主输出技能一定要第一时间点满吗？</summary>
+        <div class="faq-body">建议优先点满。主输出技能直接决定清怪效率，先把它顶起来，再补被动和辅助，整体体验会顺畅很多。</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>位移技能值得投入技能点吗？</summary>
+        <div class="faq-body">值得。远程职业依赖走位保持距离，位移与生存技能能明显降低死亡概率，尤其在怪物密集的地图中作用更大。</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>不同版本的加点方案能通用吗？</summary>
+        <div class="faq-body">大方向通用，例如“主输出优先、被动跟进、辅助延后”，但具体技能名称、点数上限和数值会随版本变化，建议结合当前版本的技能说明做调整。</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>新手应该先练级还是先研究加点？</summary>
+        <div class="faq-body">两者可以同步进行。先按“主输出优先”的原则加点保证练级效率，随着等级提升再逐步优化被动与辅助技能的分配。</div>
+      </details>
+    </section>
+
+  </main>
+
+  <aside>
+    <div class="widget">
+      <h3>本页要点回顾</h3>
+      <ul>
+        <li>能力值：敏捷为主，力量达标即可</li>
+        <li>技能点：主输出 → 被动 → 位移 → 辅助</li>
+        <li>转职期：每个阶段先补核心技能</li>
+        <li>加错点：确认版本是否支持重置</li>
+      </ul>
+    </div>
+    <div class="widget">
+      <h3>相关阅读方向</h3>
+      <ul>
+        <li><a href="#intro">风灵使者职业定位</a></li>
+        <li><a href="#order">技能加点优先级表</a></li>
+        <li><a href="#stat">能力值分配细节</a></li>
+        <li><a href="#job">各转职阶段重点</a></li>
+        <li><a href="#equip">装备与内在搭配</a></li>
+      </ul>
+    </div>
+    <div class="widget">
+      <h3>小提示</h3>
+      <p class="mini-note">加点方案没有唯一标准答案。你的游戏版本、装备水平、单刷或组队习惯，都会影响最终选择。把本页当作判断框架，而不是照抄清单，会更实用。</p>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h4>风灵使者加点站</h4>
+      <p style="font-size:.86rem;color:#a9d3bd;margin:0;">整理风灵使者技能加点、能力值分配与养成思路，帮助玩家按阶段规划角色成长。</p>
+    </div>
+    <div>
+      <h4>内容导航</h4>
+      <ul>
+        <li><a href="#intro">基础认识</a></li>
+        <li><a href="#order">加点顺序</a></li>
+        <li><a href="#stat">能力值分配</a></li>
+        <li><a href="#job">转职阶段</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>常见问题</h4>
+      <ul>
+        <li><a href="#faq">主属性怎么选</a></li>
+        <li><a href="#faq">加错点怎么办</a></li>
+        <li><a href="#faq">位移技能要不要点</a></li>
+        <li><a href="#faq">版本差异说明</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>说明</h4>
+      <ul>
+        <li>内容为通用养成参考</li>
+        <li>具体数值以游戏内为准</li>
+        <li>不同版本可能存在差异</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 风灵使者加点站 · 本页内容仅供玩家参考，请以当前版本游戏内实际说明为准
+  </div>
+</footer>
+
+<script>
+(function(){
+  var faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(function(item){
+    item.addEventListener('toggle', function(){
+      if(item.open){
+        faqItems.forEach(function(other){
+          if(other !== item && other.open){
+            other.open = false;
+          }
+        });
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+  </html>
